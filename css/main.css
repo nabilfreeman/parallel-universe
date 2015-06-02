@@ -1,0 +1,99 @@
+@import url(webfont.css);
+
+html, body{
+	margin:0px;
+	padding:0px;
+	background:#333;
+	color:#FFF;
+	text-shadow:1px 1px 0px #000;
+}
+
+body{
+	background-image:url('/img/zoom.gif');
+	background-size:cover;
+	background-position:center center;
+	background-repeat:no-repeat;
+	box-shadow:inset 0px 99999px 0px rgba(0,0,0,1);
+	background-attachment:fixed;
+	
+	/*this is for our vertical align CSS hack! inline-block puts whitespace between elements, which sux.*/
+	text-align:center;
+	font-size:0px;
+}
+
+body.ready{
+	transition:6s;
+	box-shadow:inset 0px 99999px 0px rgba(0,0,0,0.6);
+}
+
+/*part of the vertical-align CSS hack*/
+body:before{
+	display:inline-block;
+	height:100%;
+	content:'';
+	vertical-align:middle;
+}
+
+/*reset the font size in here.*/
+.content{
+	display:inline-block;
+	vertical-align:middle;
+	font-size:16px;
+}
+
+h1{
+	text-align:center;
+	font-family: "Karla", Helvetica, Arial, sans-serif;
+	margin:0px;
+	padding:80px 0px;
+	font-size:50px;
+	letter-spacing:-1px;
+	font-weight:bold;
+}
+
+#cases{
+	margin:0 auto;
+	width:100%;
+	max-width:400px;
+	font-family:'Menlo', monospace;
+	font-size:16px;
+	text-align:center;
+	min-height:340px;
+}
+
+#cases p{
+	margin:0px;
+	margin-bottom:10px;
+	line-height:20px;
+}
+
+#cases p.active:after{
+	content:"";
+
+	border-left:1px solid #FFF;
+
+	-webkit-animation:cursorblink 0.8s infinite;
+}
+
+@-webkit-keyframes cursorblink {
+	0% {
+		opacity:1;
+	}
+	100% {
+		opacity:0;
+	}
+}
+
+footer{
+	text-align:center;
+	font-family: "Karla", Helvetica, Arial, sans-serif;
+	font-size:20px;
+	padding:80px 0px;
+}
+
+footer a{
+	color:#FFF;
+	text-decoration:none;
+	border-bottom:1px solid #FFF;
+	font-weight:bold;
+}
