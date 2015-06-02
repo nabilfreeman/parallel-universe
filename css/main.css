@@ -22,8 +22,8 @@ body{
 }
 
 body.ready{
-	transition:6s;
-	box-shadow:inset 0px 99999px 0px rgba(0,0,0,0.6);
+	transition:3s;
+	box-shadow:inset 0px 99999px 0px rgba(0,0,0,0.5);
 }
 
 /*part of the vertical-align CSS hack*/
