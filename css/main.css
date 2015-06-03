@@ -65,6 +65,7 @@ h1{
 	margin:0px;
 	margin-bottom:10px;
 	line-height:20px;
+	opacity:1;
 }
 
 #cases p.active:after{
@@ -82,6 +83,14 @@ h1{
 	100% {
 		opacity:0;
 	}
+}
+
+#cases p.invisible{
+	display:none;
+	transition:1s;
+
+	margin-bottom:0px;
+	opacity:0;
 }
 
 footer{

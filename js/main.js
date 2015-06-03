@@ -91,6 +91,11 @@ var generate_sentence = function(final_sentence){
 //i know, the callback stuff is groce. but it works!
 var write_typewriter_style = function(sentence, element, callback){
 
+	//override the typing function with these three lines:
+	// element.innerHTML = sentence;
+	// callback();
+	// return;
+
 	var i = 0;
 	var text = function(words, callback){
 		element.innerHTML = element.innerHTML + words[i];
@@ -128,6 +133,14 @@ var run = function(){
 	paragraph.classList.add("active");
 
 	document.querySelector("#cases").appendChild(paragraph);
+
+	var all_paragraphs = document.querySelectorAll("#cases p");
+
+	if(all_paragraphs.length > 11){
+		var el_to_hide = all_paragraphs[all_paragraphs.length - 12];
+		el_to_hide.setAttribute("style", "margin-top:-" + el_to_hide.scrollHeight + "px");
+		el_to_hide.classList.add("invisible");
+	}
 
 	//nifty typewriter function so it looks like a robot from another dimension is writing the function
 	write_typewriter_style(sentence, paragraph, function(){
