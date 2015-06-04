@@ -1,42 +1,9 @@
 var waitForReady = setInterval(function(){
 	if(document.readyState === "complete"){
 		clearInterval(waitForReady);
-		document.querySelector("body").classList.add("ready");
+		document.querySelector("body").classList.add("shrinking");
 	}
 });
-
-var size_map = {
-	1: 260,
-	2: 140,
-	4: 140,
-	8: 60,
-	16: 60,
-	32: 20,
-	64: 20
-};
-
-var cells = 1;
-
-var draw = function(){
-
-	if(cells > 64){
-		return;
-	}
-
-	var mitosis = document.querySelector(".mitosis .universes div");
-	mitosis.innerHTML = "";
-
-	for(var i = 0; i < cells; i++){
-		var img = document.createElement("img");
-		img.src = "img/space.jpg";
-
-		img.setAttribute("style", "height:" + size_map[cells] + "px");
-
-		mitosis.appendChild(img);
-	}
-
-	cells *= 2;
-};
 
 var _mad_libs = [
 	{"you": [
@@ -148,7 +115,7 @@ var write_typewriter_style = function(sentence, element, callback){
 
 };
 
-var final_sentence = "... and infinite other things.";
+var final_sentence = "... and infinite other things. As far as we know, these universes are completely unreachable. So make the most of the one you are in now.";
 
 var run = function(){
 
@@ -180,7 +147,6 @@ var run = function(){
 	write_typewriter_style(sentence, paragraph, function(){
 		//if generate sentence returns the final string, the list of entries has been exhausted so we need to stop.
 		if(sentence === final_sentence) return;	
-		draw();
 		run();
 		// setTimeout(run, 1000);
 	});
