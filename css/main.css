@@ -5,6 +5,7 @@ html, body{
 	padding:0px;
 	background:#000;
 	color:#FFF;
+	height:100%;
 	text-shadow:1px 1px 0px #000;
 }
 
@@ -12,8 +13,6 @@ body{
 	/*this is for our vertical align CSS hack! inline-block puts whitespace between elements, which sux.*/
 	text-align:left;
 	font-size:0px;
-
-	height:100%;
 
 	background-image:url('../img/space.jpg');
 	background-size:80vh 80vh;
