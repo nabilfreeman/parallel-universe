@@ -160,7 +160,7 @@ var run = function(){
 
 			setTimeout(function(){
 				write_typewriter_style(
-					"As far as we know, these universes are completely unreachable. So make the most of the one you are in now. Carpe diem. --END TRANSMISSION--",
+					"As far as we know, these universes are completely unreachable. It is up to you to make this one good. Carpe diem. --END TRANSMISSION--",
 					paragraph,
 					function(){}
 				);
