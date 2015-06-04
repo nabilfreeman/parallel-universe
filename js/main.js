@@ -5,6 +5,66 @@ var waitForReady = setInterval(function(){
 	}
 });
 
+var canvas = document.querySelector("canvas");
+var ctx = canvas.getContext("2d");
+var canvas_data = {
+	
+};
+
+var updateCanvasData = function(){
+	var cd = canvas_data;
+
+	cd.width = window.innerWidth * 2;
+	cd.height = window.innerHeight * 2;
+
+	canvas.setAttribute("width", cd.width);
+	canvas.setAttribute("height", cd.height);
+
+	cd.columns = 10;
+	cd.divider = Math.floor(cd.width / cd.columns);
+
+	cd.position = cd.width;
+
+	cd.color = {
+		h: 258,
+		s: 100,
+		b: 10,
+		a: 0.1
+	};
+	
+};
+
+updateCanvasData();
+
+var iterations = 0;
+var draw = function(){
+	var cd = canvas_data;
+
+	iterations += 1;
+	if(iterations % cd.columns === 0){
+		cd.color.h -= 50;
+		cd.position = cd.width;
+	}
+
+	cd.position -= cd.divider;
+
+	ctx.fillStyle = "hsla(" + cd.color.h + ", " + cd.color.s + "%, " + cd.color.b + "%, " + cd.color.a + ")";
+
+	ctx.fillRect(
+		cd.position,
+		0,
+		cd.width,
+		cd.height
+	);
+
+	// ctx.fillRect(
+	// 	canvas_data.square_position.x,
+	// 	canvas_data.square_position.y,
+	// 	canvas_data.square_size,
+	// 	canvas_data.square_size
+	// );
+};
+
 var _mad_libs = [
 	{"you": [
 		{"are": [
@@ -104,7 +164,7 @@ var write_typewriter_style = function(sentence, element, callback){
 		if(i < words.length){
 			setTimeout(function(){
 				text(words, callback);
-			}, 30);
+			}, 50);
 		} else {
 			i = 0;
 			callback();
@@ -118,6 +178,7 @@ var write_typewriter_style = function(sentence, element, callback){
 var final_sentence = "... and infinite other things.";
 
 var run = function(){
+
 	//generate our Mad Libs sentence! Soon to be an epic function.
 	var sentence = generate_sentence(final_sentence);
 
@@ -146,8 +207,9 @@ var run = function(){
 	write_typewriter_style(sentence, paragraph, function(){
 		//if generate sentence returns the final string, the list of entries has been exhausted so we need to stop.
 		if(sentence === final_sentence) return;	
-
-		setTimeout(run, 500);
+		draw();
+		run();
+		// setTimeout(run, 1000);
 	});
 }
 

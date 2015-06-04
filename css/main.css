@@ -9,21 +9,10 @@ html, body{
 }
 
 body{
-	background-image:url('../img/zoom.gif');
-	background-size:cover;
-	background-position:center center;
-	background-repeat:no-repeat;
-	box-shadow:inset 0px 99999px 0px rgba(0,0,0,1);
-	background-attachment:fixed;
-	
 	/*this is for our vertical align CSS hack! inline-block puts whitespace between elements, which sux.*/
-	text-align:center;
+	text-align:left;
 	font-size:0px;
-}
-
-body.ready{
-	transition:3s;
-	box-shadow:inset 0px 99999px 0px rgba(0,0,0,0.5);
+	padding:0px 20px;
 }
 
 /*part of the vertical-align CSS hack*/
@@ -39,26 +28,34 @@ body:before{
 	display:inline-block;
 	vertical-align:middle;
 	font-size:16px;
+	padding:20px 0px;
 }
 
 h1{
-	text-align:center;
+	text-align:left;
 	font-family: "Karla", Helvetica, Arial, sans-serif;
 	margin:0px;
-	padding:80px 0px;
+	padding:0px;
+	padding-bottom:40px;
 	font-size:50px;
 	letter-spacing:-1px;
 	font-weight:bold;
+	line-height:60px;
 }
 
 #cases{
-	margin:0 auto;
-	width:100%;
-	max-width:400px;
+	width:50%;
 	font-family:'Menlo', monospace;
 	font-size:16px;
-	text-align:center;
-	min-height:340px;
+	text-align:left;
+	min-height:320px;
+	float:right;
+}
+
+canvas{
+	float:right;
+	width:50%;
+	height:320px;
 }
 
 #cases p{
@@ -66,6 +63,10 @@ h1{
 	margin-bottom:10px;
 	line-height:20px;
 	opacity:1;
+}
+
+#cases p.active{
+	margin-bottom:0px;
 }
 
 #cases p.active:after{
@@ -94,10 +95,11 @@ h1{
 }
 
 footer{
-	text-align:center;
+	text-align:left;
 	font-family: "Karla", Helvetica, Arial, sans-serif;
 	font-size:20px;
 	padding:80px 0px;
+	height:60px;
 }
 
 footer a{
