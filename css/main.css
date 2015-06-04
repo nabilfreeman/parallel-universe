@@ -18,6 +18,12 @@ body{
 	background-position:right center;
 }
 
+@media screen and (max-width:600px){
+	body{
+		background-position:center center;
+	}
+}
+
 body.shrinking{
 	transition:60s;
 
@@ -48,6 +54,21 @@ body:before{
 	font-size:0px;
 
 	max-width:550px;
+}
+
+@media screen and (max-width:600px){
+	body:before{
+		display:none;
+	}
+
+	.content{
+		background:rgba(0,0,0,0.5);
+		width:100%;
+		max-width:99999px;
+		padding:20px;
+		border-radius:none;
+		height:100%;
+	}
 }
 
 h1{
