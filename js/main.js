@@ -5,64 +5,37 @@ var waitForReady = setInterval(function(){
 	}
 });
 
-var canvas = document.querySelector("canvas");
-var ctx = canvas.getContext("2d");
-var canvas_data = {
-	
+var size_map = {
+	1: 260,
+	2: 140,
+	4: 140,
+	8: 60,
+	16: 60,
+	32: 20,
+	64: 20
 };
 
-var updateCanvasData = function(){
-	var cd = canvas_data;
+var cells = 1;
 
-	cd.width = window.innerWidth * 2;
-	cd.height = window.innerHeight * 2;
-
-	canvas.setAttribute("width", cd.width);
-	canvas.setAttribute("height", cd.height);
-
-	cd.columns = 10;
-	cd.divider = Math.floor(cd.width / cd.columns);
-
-	cd.position = cd.width;
-
-	cd.color = {
-		h: 258,
-		s: 100,
-		b: 10,
-		a: 0.1
-	};
-	
-};
-
-updateCanvasData();
-
-var iterations = 0;
 var draw = function(){
-	var cd = canvas_data;
 
-	iterations += 1;
-	if(iterations % cd.columns === 0){
-		cd.color.h -= 50;
-		cd.position = cd.width;
+	if(cells > 64){
+		return;
 	}
 
-	cd.position -= cd.divider;
+	var mitosis = document.querySelector(".mitosis .universes div");
+	mitosis.innerHTML = "";
 
-	ctx.fillStyle = "hsla(" + cd.color.h + ", " + cd.color.s + "%, " + cd.color.b + "%, " + cd.color.a + ")";
+	for(var i = 0; i < cells; i++){
+		var img = document.createElement("img");
+		img.src = "img/space.jpg";
 
-	ctx.fillRect(
-		cd.position,
-		0,
-		cd.width,
-		cd.height
-	);
+		img.setAttribute("style", "height:" + size_map[cells] + "px");
 
-	// ctx.fillRect(
-	// 	canvas_data.square_position.x,
-	// 	canvas_data.square_position.y,
-	// 	canvas_data.square_size,
-	// 	canvas_data.square_size
-	// );
+		mitosis.appendChild(img);
+	}
+
+	cells *= 2;
 };
 
 var _mad_libs = [
