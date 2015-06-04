@@ -1,7 +1,7 @@
 # parallel-universe
 In a parallel universe...........
 
-![our universe](https://github.com/nabilfreeman/parallel-universe/raw/master/img/space.png)
+![our universe](https://github.com/nabilfreeman/parallel-universe/raw/gh-pages/img/space.png)
 
 # why
 - I find the multiverse theory very interesting...
