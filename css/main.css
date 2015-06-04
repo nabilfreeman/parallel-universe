@@ -13,6 +13,8 @@ body{
 	text-align:left;
 	font-size:0px;
 
+	height:100%;
+
 	background-image:url('../img/space.jpg');
 	background-size:80vh 80vh;
 	background-position:right center;
