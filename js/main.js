@@ -115,7 +115,7 @@ var write_typewriter_style = function(sentence, element, callback){
 
 };
 
-var final_sentence = "... and infinite other things. As far as we know, these universes are completely unreachable. So make the most of the one you are in now.";
+var final_sentence = "... and infinite other things.";
 
 var run = function(){
 
@@ -146,7 +146,28 @@ var run = function(){
 	//nifty typewriter function so it looks like a robot from another dimension is writing the function
 	write_typewriter_style(sentence, paragraph, function(){
 		//if generate sentence returns the final string, the list of entries has been exhausted so we need to stop.
-		if(sentence === final_sentence) return;	
+		if(sentence === final_sentence){
+			var paragraph = document.createElement("p");
+			paragraph.classList.add("active");
+
+			paragraph.setAttribute("style", "margin-bottom:inherit;");
+
+			setTimeout(function(){
+				document.querySelector("#cases").innerHTML = "";
+
+				document.querySelector("#cases").appendChild(paragraph);
+			}, 1000);
+
+			setTimeout(function(){
+				write_typewriter_style(
+					"As far as we know, these universes are completely unreachable. So make the most of the one you are in now. Carpe diem. --END TRANSMISSION--",
+					paragraph,
+					function(){}
+				);
+			}, 2000);
+
+			return;
+		}	
 		run();
 		// setTimeout(run, 1000);
 	});

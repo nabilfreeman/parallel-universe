@@ -19,9 +19,9 @@ body{
 }
 
 body.shrinking{
-	transition:60s ease;
+	transition:60s;
 
-	background-size:5px 5px;
+	background-size:10px 10px;
 }
 
 /*part of the vertical-align CSS hack*/
