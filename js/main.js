@@ -148,7 +148,6 @@ var run = function(){
 		//if generate sentence returns the final string, the list of entries has been exhausted so we need to stop.
 		if(sentence === final_sentence){
 			var paragraph = document.createElement("p");
-			paragraph.classList.add("active");
 
 			paragraph.setAttribute("style", "margin-bottom:inherit;");
 
@@ -162,7 +161,16 @@ var run = function(){
 				write_typewriter_style(
 					"As far as we know, these universes are completely unreachable. It is up to you to make this one good. Carpe diem. --END TRANSMISSION--",
 					paragraph,
-					function(){}
+					function(){
+						setTimeout(function(){
+							var me = document.createElement("p");
+							me.classList.add("me");
+
+							me.innerHTML = "Author's message: If you thought this was cool, you might like <a href='http://github.com/nabilfreeman'>my other projects</a>. They are all open source (including this one)!";
+
+							document.querySelector("#cases").appendChild(me);
+						}, 1000);
+					}
 				);
 			}, 2000);
 

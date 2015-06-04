@@ -13,21 +13,34 @@ body{
 	text-align:left;
 	font-size:0px;
 
-	background-image:url('../img/space.png');
+	background-image:url('../img/space.jpg');
 	background-size:80vh 80vh;
 	background-position:right center;
 }
 
 @media screen and (max-width:600px){
 	body{
-		background-position:center center;
+		/*background-position:center center;*/
 	}
 }
 
 body.shrinking{
-	transition:60s;
+	transition:10s;
 
-	background-size:10px 10px;
+	background-size:20px 20px;
+}
+
+/*The below media queries are an attempt to regulate performance on big screens. The more times the background image repeats, the worse performance becomes.*/
+@media screen and (min-width:600px){
+	body.shrinking{
+		background-size:60px 60px;
+	}
+}
+
+@media screen and (min-width:1000px){
+	body.shrinking{
+		background-size:80px 80px;
+	}
 }
 
 /*part of the vertical-align CSS hack*/
@@ -129,6 +142,15 @@ h1{
 
 	margin-bottom:0px;
 	opacity:0;
+}
+
+#cases p.me{
+	margin-top:40px;
+	color:#CDCDCD;
+}
+
+#cases p.me a{
+	color:#CDCDCD;
 }
 
 footer{
